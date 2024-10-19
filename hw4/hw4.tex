@@ -1,0 +1,534 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage[a4paper, margin=1in]{geometry}
+\title{Homework 4}
+\author{Steve Gillet}
+\date{\today}
+
+% Custom information
+\newcommand{\className}{Course: Linear Control Design – ASEN 5014-001 – Fall 2024}
+\newcommand{\professorName}{Professor: Dale Lawrence}
+\newcommand{\taName}{Teaching Assistant: Karan Muvvala}
+
+\begin{document}
+
+% Title
+\maketitle
+\begin{center}
+    \large{\className} \\
+    \large{\professorName} \\
+    \large{\taName}
+\end{center}
+
+\section{Question 1}
+Express the vector $\mathbf{z}=\begin{bmatrix} 6 \\ 4 \\ -3 \end{bmatrix}$ in terms of the orthonormal basis set $\mathbf{\hat{v}}_i$ of Problem 5.39.
+
+$\mathbf{\hat{v}}_i=$
+\begin{align*}
+    \mathbf{\hat{q}}_1 &= \begin{bmatrix} \frac{1}{\sqrt{14}} \\ \sqrt{\frac{2}{7}} \\ \frac{3}{\sqrt{14}} \end{bmatrix}\\
+    \mathbf{\hat{q}}_2 &= \begin{bmatrix} \frac{1}{\sqrt{35}} \\ \sqrt{\frac{5}{7}} \\ \frac{3}{\sqrt{35}} \end{bmatrix} \\
+    \mathbf{\hat{q}}_3 &= \begin{bmatrix} \frac{-31}{\sqrt{1010}} \\ 0 \\ \frac{7}{\sqrt{1010}} \end{bmatrix}
+\end{align*}
+
+\subsection{Vector z in Terms of Orthonormal Basis Set}
+
+To express the vector \(\mathbf{z} = \begin{bmatrix} 6 \\ 4 \\ -3 \end{bmatrix}\) in terms of the orthonormal basis set \(\{ \hat{\mathbf{q}}_1, \hat{\mathbf{q}}_2, \hat{\mathbf{q}}_3 \}\), we represent \(\mathbf{z}\) as:
+
+\[
+\mathbf{z} = c_1 \hat{\mathbf{q}}_1 + c_2 \hat{\mathbf{q}}_2 + c_3 \hat{\mathbf{q}}_3
+\]
+
+where the coefficients \(c_1, c_2, c_3\) are given by:
+
+\[
+c_i = \hat{\mathbf{q}}_i^T \mathbf{z}, \quad \text{for } i = 1, 2, 3
+\]
+
+\textbf{Step 1: Calculate \(c_1\)}
+
+\[
+c_1 = \hat{\mathbf{q}}_1^T \mathbf{z} = \begin{bmatrix} \frac{1}{\sqrt{14}} & \sqrt{\frac{2}{7}} & \frac{3}{\sqrt{14}} \end{bmatrix} \begin{bmatrix} 6 \\ 4 \\ -3 \end{bmatrix}
+\]
+
+\[
+c_1 = \frac{1}{\sqrt{14}} \cdot 6 + \sqrt{\frac{2}{7}} \cdot 4 + \frac{3}{\sqrt{14}} \cdot (-3)
+\]
+
+\[
+c_1 = \frac{6}{\sqrt{14}} + \frac{4\sqrt{2}}{\sqrt{7}} - \frac{9}{\sqrt{14}}
+\]
+
+\[
+c_1 = \frac{-3}{\sqrt{14}} + \frac{4\sqrt{2}}{\sqrt{7}}
+\]
+
+\textbf{Step 2: Calculate \(c_2\)}
+
+\[
+c_2 = \hat{\mathbf{q}}_2^T \mathbf{z} = \begin{bmatrix} \frac{1}{\sqrt{35}} & \sqrt{\frac{5}{7}} & \frac{3}{\sqrt{35}} \end{bmatrix} \begin{bmatrix} 6 \\ 4 \\ -3 \end{bmatrix}
+\]
+
+\[
+c_2 = \frac{1}{\sqrt{35}} \cdot 6 + \sqrt{\frac{5}{7}} \cdot 4 + \frac{3}{\sqrt{35}} \cdot (-3)
+\]
+
+\[
+c_2 = \frac{6}{\sqrt{35}} + \frac{4\sqrt{5}}{\sqrt{7}} - \frac{9}{\sqrt{35}}
+\]
+
+\[
+c_2 = \frac{-3}{\sqrt{35}} + \frac{4\sqrt{5}}{\sqrt{7}}
+\]
+
+\textbf{Step 3: Calculate \(c_3\)}
+
+\[
+c_3 = \hat{\mathbf{q}}_3^T \mathbf{z} = \begin{bmatrix} \frac{-31}{\sqrt{1010}} & 0 & \frac{7}{\sqrt{1010}} \end{bmatrix} \begin{bmatrix} 6 \\ 4 \\ -3 \end{bmatrix}
+\]
+
+\[
+c_3 = \frac{-31}{\sqrt{1010}} \cdot 6 + 0 \cdot 4 + \frac{7}{\sqrt{1010}} \cdot (-3)
+\]
+
+\[
+c_3 = \frac{-186}{\sqrt{1010}} - \frac{21}{\sqrt{1010}}
+\]
+
+\[
+c_3 = \frac{-207}{\sqrt{1010}}
+\]
+
+\textbf{Final Representation of \(\mathbf{z}\)}
+
+\[
+\mathbf{z} = c_1 \hat{\mathbf{q}}_1 + c_2 \hat{\mathbf{q}}_2 + c_3 \hat{\mathbf{q}}_3
+\]
+
+\[
+\mathbf{z} = \left( \frac{-3}{\sqrt{14}} + \frac{4\sqrt{2}}{\sqrt{7}} \right) \hat{\mathbf{q}}_1 + \left( \frac{-3}{\sqrt{35}} + \frac{4\sqrt{5}}{\sqrt{7}} \right) \hat{\mathbf{q}}_2 + \left( \frac{-207}{\sqrt{1010}} \right) \hat{\mathbf{q}}_3
+\]
+
+\section{Question 2}
+
+Find orthogonal basis sets for the row space, right null space, column space, and
+left null space of the following matrix of a linear mapping A.
+
+\[
+M = \begin{bmatrix}
+    3 & -1 & 4 & 0 & 7 \\
+    3 & 7 & 11 & -9 & 8 \\
+    1 & -3 & -1 & 3 & 2 \\
+    -10 & 6 & -11 & -3 & -23 \\
+\end{bmatrix}
+\]
+
+\subsection{Find an Orthogonal Basis for the Row Space}
+
+Let the rows of matrix \( M \) be:
+
+\begin{align*}
+    \mathbf{r}_1 &= \begin{bmatrix} 3 & -1 & 4 & 0 & 7 \end{bmatrix}, \\
+    \mathbf{r}_2 &= \begin{bmatrix} 3 & 7 & 11 & -9 & 8 \end{bmatrix}, \\
+    \mathbf{r}_3 &= \begin{bmatrix} 1 & -3 & -1 & 3 & 2 \end{bmatrix}, \\
+    \mathbf{r}_4 &= \begin{bmatrix} -10 & 6 & -11 & -3 & -23 \end{bmatrix}
+\end{align*}
+
+\[
+\mathbf{q}_1 = \mathbf{r}_1 = \begin{bmatrix} 3 & -1 & 4 & 0 & 7 \end{bmatrix}
+\]
+
+\[
+\mathbf{q}_2 = \mathbf{r}_2 - \frac{\mathbf{r}_2 \cdot \mathbf{q}_1^T}{\mathbf{q}_1 \cdot \mathbf{q}_1^T} \mathbf{q}_1
+\]
+
+\[
+\mathbf{q}_2 = \begin{bmatrix} 3 & 7 & 11 & -9 & 8 \end{bmatrix} - \frac{102}{75} \begin{bmatrix} 3 & -1 & 4 & 0 & 7 \end{bmatrix}
+\]
+
+\[
+\mathbf{q}_2 = \begin{bmatrix} 3 & 7 & 11 & -9 & 8 \end{bmatrix} - 1.36 \begin{bmatrix} 3 & -1 & 4 & 0 & 7 \end{bmatrix}
+\]
+
+\[
+\mathbf{q}_2 = \begin{bmatrix} -1.08 & 8.36 & 5.56 & -9 & -1.52 \end{bmatrix} 
+\]
+
+\[
+\mathbf{q}_3 = \mathbf{r}_3 - \frac{\mathbf{r}_3 \cdot \mathbf{q}_1^T}{\mathbf{q}_1 \cdot \mathbf{q}_1^T} \mathbf{q}_1 - \frac{\mathbf{r}_3 \cdot \mathbf{q}_2^T}{\mathbf{q}_2 \cdot \mathbf{q}_2^T} \mathbf{q}_2
+\]
+
+\[
+\mathbf{q}_3 = \begin{bmatrix} 1 & -3 & -1 & 3 & 2 \end{bmatrix} - \frac{16}{75} \begin{bmatrix} 3 & -1 & 4 & 0 & 7 \end{bmatrix} - \frac{-61.76}{185.28} \begin{bmatrix} -0.72 & 8.24 & 6.04 & -9 & -0.68 \end{bmatrix}
+\]
+
+\[
+\mathbf{q}_3 = \begin{bmatrix} .36 & -2.7867 & -1.853 & 3 & 0.5067 \end{bmatrix} - \frac{-61.76}{185.28} \begin{bmatrix} -0.72 & 8.24 & 6.04 & -9 & -0.68 \end{bmatrix}
+\]
+    
+\[
+\mathbf{q}_3 = \begin{bmatrix} 0 & -4.44x10^{-16} & -4.44x10^{-16} & 0 & -4.44x10^{-16} \end{bmatrix}
+\]
+
+\[
+\mathbf{q}_4 = \mathbf{r}_4 - \frac{\mathbf{r}_4 \cdot \mathbf{q}_1}{\mathbf{q}_1 \cdot \mathbf{q}_1} \mathbf{q}_1 - \frac{\mathbf{r}_4 \cdot \mathbf{q}_2}{\mathbf{q}_2 \cdot \mathbf{q}_2} \mathbf{q}_2 - \frac{\mathbf{r}_4 \cdot \mathbf{q}_3}{\mathbf{q}_3 \cdot \mathbf{q}_3} \mathbf{q}_3
+\]
+
+\[
+\mathbf{q}_4 = \begin{bmatrix} 6.66x10^{-16} & 9.33 & 9.33 & 8.88x10^{-16} & 9.33 \end{bmatrix}
+\]
+
+The vectors \( \mathbf{q}_1, \mathbf{q}_2, \mathbf{q}_3, \mathbf{q}_4 \) form an orthogonal basis for the row space of \( M \).
+
+\subsection{Find an Orthogonal Basis for the Right Nullspace}
+
+Doing QR Decomposition on the matrix $M^T$ we get 
+
+\[
+M^T = Q_T R_T
+\]
+
+Matrix \( Q_T \)
+\[
+Q_T = \begin{bmatrix}
+    -0.3464 & 0.0793 & 0.2089 & 0.8944 \\
+    0.1155 & -0.6142 & 0.7232 & -0.1216 \\
+    -0.4619 & -0.4085 & 0.0191 & 0.0054 \\
+    0 & 0.6612 & 0.6580 & -0.1488 \\
+    -0.8083 & 0.1117 & 0.0029 & -0.4038
+\end{bmatrix}
+\]
+
+Matrix \( R_T \)
+\[
+R_T = \begin{bmatrix}
+    -8.6603 & -11.7780 & -1.8475 & 27.8283 \\
+    0 & -13.6118 & 4.5373 & -4.5373 \\
+    0 & 0 & -7.8274 \times 10^{-16} & 4.5169 \times 10^{-16} \\
+    0 & 0 & 0 & 2.4636 \times 10^{-15}
+\end{bmatrix}
+\]
+
+Given that the last two rows of the R matrix are effectively 0 vectors, that makes the last 2 columns of the $Q_T$ matrix the orthogonal basis for the Right Nullspace.
+\\
+\\
+$RN(M^T) = \begin{bmatrix}
+    0.2089 & 0.8944 \\
+    0.7232 & -0.1216 \\
+    0.0191 & 0.0054 \\
+    0.6580 & -0.1488 \\
+    0.0029 & -0.4038
+\end{bmatrix}$
+
+\subsection{Find an Orthogonal Basis for the Column Space}
+
+Let the columns of matrix \( M \) be:
+
+\begin{align*}
+    \mathbf{c}_1 &= \begin{bmatrix} 3 \\ 3 \\ 1 \\ -10 \end{bmatrix} \\
+    \mathbf{c}_2 &= \begin{bmatrix} -1 \\ 7 \\ -3 \\ 6 \end{bmatrix} \\
+    \mathbf{c}_3 &= \begin{bmatrix} 4 \\ 11 \\ -1 \\ -11 \end{bmatrix} \\
+    \mathbf{c}_4 &= \begin{bmatrix} 0 \\ -9 \\ 3 \\ -3 \end{bmatrix} \\
+    \mathbf{c}_5 &= \begin{bmatrix} 7 \\ 8 \\ 2 \\ -23 \end{bmatrix}
+\end{align*}
+
+We apply the Gram-Schmidt process to obtain orthogonal vectors \( \mathbf{p}_1, \mathbf{p}_2, \mathbf{p}_3, \mathbf{p}_4, \mathbf{p}_5 \):
+
+\[
+\mathbf{p}_1 = \mathbf{c}_1 = \begin{bmatrix} 3 \\ 3 \\ 1 \\ -10 \end{bmatrix}
+\]
+
+\[
+\mathbf{p}_2 = \mathbf{c}_2 - \frac{\mathbf{c}_2 \cdot \mathbf{p}_1}{\mathbf{p}_1 \cdot \mathbf{p}_1} \mathbf{p}_1
+\]
+
+\[
+\mathbf{p}_2 = \begin{bmatrix} 0.1345 \\ 8.1345 \\ -2.6218 \\ 2.2185 \end{bmatrix}
+\]
+
+\[
+\mathbf{p}_3 = \mathbf{c}_3 - \frac{\mathbf{c}_3 \cdot \mathbf{p}_1}{\mathbf{p}_1 \cdot \mathbf{p}_1} \mathbf{p}_1 - \frac{\mathbf{c}_3 \cdot \mathbf{p}_2}{\mathbf{p}_2 \cdot \mathbf{p}_2} \mathbf{p}_2
+\]
+
+\[
+\mathbf{p}_3 = \begin{bmatrix} -4.16x10^{-16} \\ -1.78x10^{-15} \\ 8.88x10^{-16} \\ -4.44x10^{-16} \end{bmatrix}
+\]
+
+\[
+\mathbf{p}_4 = \mathbf{c}_4 - \frac{\mathbf{c}_4 \cdot \mathbf{p}_1}{\mathbf{p}_1 \cdot \mathbf{p}_1} \mathbf{p}_1 - \frac{\mathbf{c}_4 \cdot \mathbf{p}_2}{\mathbf{p}_2 \cdot \mathbf{p}_2} \mathbf{p}_2 - \frac{\mathbf{c}_4 \cdot \mathbf{p}_3}{\mathbf{p}_3 \cdot \mathbf{p}_3} \mathbf{p}_3
+\]
+
+\[
+\mathbf{p}_4 = \begin{bmatrix} 1.9282 \\ 8.2271 \\ -4.1136 \\ 2.0568 \end{bmatrix}
+\]
+
+\[
+\mathbf{p}_5 = \mathbf{c}_5 - \frac{\mathbf{c}_5 \cdot \mathbf{p}_1}{\mathbf{p}_1 \cdot \mathbf{p}_1} \mathbf{p}_1 - \frac{\mathbf{c}_5 \cdot \mathbf{p}_2}{\mathbf{p}_2 \cdot \mathbf{p}_2} \mathbf{p}_2 - \frac{\mathbf{c}_5 \cdot \mathbf{p}_3}{\mathbf{p}_3 \cdot \mathbf{p}_3} \mathbf{p}_3 - \frac{\mathbf{c}_5 \cdot \mathbf{p}_4}{\mathbf{p}_4 \cdot \mathbf{p}_4} \mathbf{p}_4
+\]
+
+\[
+\mathbf{p}_5 = \begin{bmatrix} -0.9909 \\ -4.2278 \\ 2.1139 \\ -1.0570 \end{bmatrix}
+\]
+
+The vectors \( \mathbf{p}_1, \mathbf{p}_2, \mathbf{p}_3, \mathbf{p}_4, \mathbf{p}_5 \) form an orthogonal basis for the column space of
+
+\subsection{Find an Orthogonal Basis for the Left Nullspace}
+
+Doing QR Decomposition on the matrix $M$ we get 
+
+\[
+M = Q R
+\]
+
+Matrix \( Q \)
+\[
+Q = \begin{bmatrix}
+    -0.2750 & -0.0152 & 0.9604 & 0.0412 \\
+    -0.2750 & -0.9211 & -0.1043 & 0.2549 \\
+    -0.0917 & 0.2969 & -0.0623 & 0.9485 \\
+    0.9167 & -0.2512 & 0.2506 & 0.1837
+\end{bmatrix}
+\]
+
+Matrix \( R \)
+\[
+R = \begin{bmatrix}
+    -10.9087 & 4.1251 & -14.1172 & -0.5500 & -25.3925 \\
+    0 & -8.8308 & -7.7270 & 9.9347 & -1.1039 \\
+    0 & 0 & -5.4792 \times 10^{-15} & 2.0652 \times 10^{-15} & -6.2765 \times 10^{-15} \\
+    0 & 0 & 0 & -2.4241 \times 10^{-17} & -5.1599 \times 10^{-16}
+\end{bmatrix}
+\]
+
+Given that the last two rows of the R matrix are effectively 0 vectors, that makes the last 2 columns of the Q matrix the orthogonal basis for the Left Nullspace.
+\\
+\\
+\[LN(M) = \begin{bmatrix}
+    0.9604 & 0.0412 \\
+    -0.1043 & 0.2549 \\
+    -0.0623 & 0.9485 \\
+    0.2506 & 0.1837
+\end{bmatrix}
+\]
+
+\section{Question 3}
+
+Let \( S \) be the subspace of \( \mathbf{R}^5 \) spanned by the vectors \( \{v_i\} \) below. Find a basis for the orthogonal complement \( C \) of \( S \) in \( \mathbf{R}^5 \).
+
+\[
+v_1 = \begin{bmatrix} 2 \\ 0 \\ 1 \\ 2 \\ 2 \end{bmatrix}, \quad v_2 = \begin{bmatrix} 1 \\ -1 \\ 1 \\ 2 \\ 1 \end{bmatrix}
+\]
+
+\subsection{QR Decomposition}
+
+The orthogonal complement \( C \) of the subspace \( S \) in \( \mathbf{R}^5 \) is found by determining the null space of the matrix formed by \( v_1 \) and \( v_2 \) as rows.
+
+Given the matrix \( A \), which is the matrix whose columns are the vectors $v_1$ and $v_2$:
+
+\[
+A = \begin{bmatrix}
+    2 & 1 \\
+    0 & -1 \\ 
+    1 & 1 \\
+    2 & 2 \\ 
+    2 & 1 \\
+\end{bmatrix}
+\]
+
+The QR decomposition of \( A \) is:
+
+\[
+A = Q_{A} R_{A}
+\]
+
+\[
+Q_{A} = \begin{bmatrix}
+    -0.5547 & -0.2892 \\
+    0 & -0.7518 \\
+    -0.2774 & 0.2313 \\
+    -0.5547 & 0.4627 \\
+    -0.5547 & -0.2892
+\end{bmatrix}
+\]
+
+\[
+R_{A} = \begin{bmatrix}
+    -3.6056 & -2.4962 \\
+    0 & 1.3301
+\end{bmatrix}
+\]
+
+\subsection{Parametric Form}
+From the QR Decomposition, we can express the leading variables (\( x_1 \) and \( x_2 \)) in terms of the free variables (\( x_3, x_4, x_5 \)):
+
+\[
+x_1 = \frac{-0.2774x_3 -0.5547x_4 -0.5547x_5}{0.5547}
+\]
+
+\[
+x_1 = -0.5x_3 -x_4 -x_5
+\]
+
+\[
+x_2 = \frac{-0.2892(-0.5x_3 -x_4 -x_5) + 0.2313x_3 + 0.4627x_4 - 0.2892x_5}{0.7518}
+\]
+
+\[
+x_2 = 0.5x_3 + x_4
+\]
+
+Let \( t_1, t_2, t_3 \) be free variables representing \( x_3, x_4, x_5 \), respectively. Then:
+
+\[
+\mathbf{x} = t_1 \begin{bmatrix} -\frac{1}{2} \\ \frac{1}{2} \\ 1 \\ 0 \\ 0 \end{bmatrix} + t_2 \begin{bmatrix} -1 \\ 1 \\ 0 \\ 1 \\ 0 \end{bmatrix} + t_3 \begin{bmatrix} -1 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\]
+
+\subsection{Basis for Orthogonal Complement}
+
+The basis for the orthogonal complement \( C \) is:
+
+\[
+\left\{ 
+    \begin{bmatrix} -\frac{1}{2} \\ \frac{1}{2} \\ 1 \\ 0 \\ 0 \end{bmatrix}, \quad
+    \begin{bmatrix} -1 \\ 1 \\ 0 \\ 1 \\ 0 \end{bmatrix}, \quad
+    \begin{bmatrix} -1 \\ 0 \\ 0 \\ 0 \\ 1 \end{bmatrix}
+\right\}
+\]
+
+\section{Question 4}
+
+Prove that the right null space of a linear mapping A is a subspace of the domain.
+
+\subsection{Proof: The Right Null Space of a Linear Mapping \( A \) is a Subspace of the Domain}
+
+Let \( A: \mathbf{R}^n \to \mathbf{R}^m \) be a linear mapping represented by an \( m \times n \) matrix. The right null space of \( A \) is defined as:
+
+\[
+\text{RN}(A) = \{ \mathbf{x} \in \mathbf{R}^n \mid A \mathbf{x} = \mathbf{0} \}
+\]
+
+We want to prove that \( \text{RN}(A) \) is a subspace of the domain, which is \( \mathbf{R}^n \).
+
+To prove that \( \text{RN}(A) \) is a subspace, we must show that:
+
+1. \( \text{RN}(A) \) contains the zero vector.
+
+2. \( \text{RN}(A) \) is closed under vector addition.
+
+3. \( \text{RN}(A) \) is closed under scalar multiplication.
+
+\subsection{The Zero Vector is in \( \text{RN}(A) \)}
+
+Consider the zero vector \( \mathbf{0} \in \mathbf{R}^n \). By the definition of the linear mapping \( A \):
+
+\[
+A \mathbf{0} = \mathbf{0}
+\]
+
+Thus, \( \mathbf{0} \in \text{RN}(A) \). Therefore, \( \text{RN}(A) \) contains the zero vector.
+
+\subsection{Step 2: Closure Under Vector Addition}
+
+Let \( \mathbf{u}, \mathbf{v} \in \text{RN}(A) \). By definition, this means:
+
+\[
+A \mathbf{u} = \mathbf{0} \quad \text{and} \quad A \mathbf{v} = \mathbf{0}
+\]
+
+We need to show that \( \mathbf{u} + \mathbf{v} \in \text{RN}(A) \). Consider:
+
+\[
+A(\mathbf{u} + \mathbf{v}) = A\mathbf{u} + A\mathbf{v} = \mathbf{0} + \mathbf{0} = \mathbf{0}
+\]
+
+Since \( A(\mathbf{u} + \mathbf{v}) = \mathbf{0} \), it follows that \( \mathbf{u} + \mathbf{v} \in \text{RN}(A) \). Thus, \( \text{RN}(A) \) is closed under vector addition.
+
+\subsection{Closure Under Scalar Multiplication}
+
+Let \( \mathbf{u} \in \text{RN}(A) \) and let \( c \in \mathbf{R} \) be any scalar. By definition:
+
+\[
+A \mathbf{u} = \mathbf{0}
+\]
+
+We need to show that \( c\mathbf{u} \in \text{RN}(A) \). Consider:
+
+\[
+A(c\mathbf{u}) = c A \mathbf{u} = c \cdot \mathbf{0} = \mathbf{0}
+\]
+
+Since \( A(c\mathbf{u}) = \mathbf{0} \), it follows that \( c\mathbf{u} \in \text{RN}(A) \). Thus, \( \text{RN}(A) \) is closed under scalar multiplication.
+
+\subsection{Conclusion}
+
+Since \( \text{RN}(A) \) contains the zero vector, is closed under vector addition, and is closed under scalar multiplication, it follows that \( \text{RN}(A) \) is a subspace of the domain \( \mathbf{R}^n \).
+
+\section{Question 5}
+
+Prove that the column space of a linear mapping A is a subspace of the co-domain.
+
+\subsection{Proof: The Column Space of a Linear Mapping \( A \) is a Subspace of the Codomain}
+
+Let \( A: \mathbf{R}^n \to \mathbf{R}^m \) be a linear mapping represented by an \( m \times n \) matrix. The column space of \( A \) is defined as:
+
+\[
+\text{CS}(A) = \{ A \mathbf{x} \mid \mathbf{x} \in \mathbf{R}^n \}
+\]
+
+In other words, the column space consists of all possible linear combinations of the columns of \( A \). We want to prove that the column space \( \text{CS}(A) \) is a subspace of the codomain, which is \( \mathbf{R}^m \).
+
+To prove that \( \text{CS}(A) \) is a subspace, we must show that:
+
+1. \( \text{CS}(A) \) contains the zero vector.
+
+2. \( \text{CS}(A) \) is closed under vector addition.
+
+3. \( \text{CS}(A) \) is closed under scalar multiplication.
+
+\subsection{Step 1: The Zero Vector is in \( \text{CS}(A) \)}
+
+Consider the zero vector \( \mathbf{0} \in \mathbf{R}^n \). By the definition of the linear mapping \( A \):
+
+\[
+A \mathbf{0} = \mathbf{0}
+\]
+
+Thus, \( \mathbf{0} \in \text{CS}(A) \). Therefore, \( \text{CS}(A) \) contains the zero vector.
+
+\subsection{Step 2: Closure Under Vector Addition}
+
+Let \( \mathbf{y}_1, \mathbf{y}_2 \in \text{CS}(A) \). By definition, this means there exist vectors \( \mathbf{x}_1, \mathbf{x}_2 \in \mathbf{R}^n \) such that:
+
+\[
+\mathbf{y}_1 = A \mathbf{x}_1, \quad \mathbf{y}_2 = A \mathbf{x}_2
+\]
+
+We need to show that \( \mathbf{y}_1 + \mathbf{y}_2 \in \text{CS}(A) \). Consider:
+
+\[
+\mathbf{y}_1 + \mathbf{y}_2 = A \mathbf{x}_1 + A \mathbf{x}_2 = A(\mathbf{x}_1 + \mathbf{x}_2)
+\]
+
+Since \( \mathbf{x}_1 + \mathbf{x}_2 \in \mathbf{R}^n \), it follows that \( \mathbf{y}_1 + \mathbf{y}_2 \in \text{CS}(A) \). Thus, \( \text{CS}(A) \) is closed under vector addition.
+
+\subsection{Step 3: Closure Under Scalar Multiplication}
+
+Let \( \mathbf{y} \in \text{CS}(A) \) and let \( c \in \mathbf{R} \) be any scalar. By definition, there exists a vector \( \mathbf{x} \in \mathbf{R}^n \) such that:
+
+\[
+\mathbf{y} = A \mathbf{x}
+\]
+
+We need to show that \( c\mathbf{y} \in \text{CS}(A) \). Consider:
+
+\[
+c\mathbf{y} = c(A \mathbf{x}) = A(c\mathbf{x})
+\]
+
+Since \( c\mathbf{x} \in \mathbf{R}^n \), it follows that \( c\mathbf{y} \in \text{C}(A) \). Thus, \( \text{C}(A) \) is closed under scalar multiplication.
+
+\subsection{Conclusion}
+
+Since \( \text{C}(A) \) contains the zero vector, is closed under vector addition, and is closed under scalar multiplication, it follows that \( \text{C}(A) \) is a subspace of the codomain \( \mathbf{R}^m \).
+
+\end{document}
